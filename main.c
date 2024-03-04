@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
+
 //funcao questao 2
 /*
 void troca(int *p1, int *p2){
@@ -10,6 +12,7 @@ void troca(int *p1, int *p2){
     printf("Numeros Invertidos\n");
     printf("p1 = %i\np2 = %i\n", *p1, *p2);
 }*/
+//funcao questao 3
 /*
 int ordena (int *n1, int *n2, int *n3, char ordem){
     int valores[3] = {*n1, *n2, *n3};
@@ -41,6 +44,40 @@ int ordena (int *n1, int *n2, int *n3, char ordem){
     return 0;
 }
 */
+//funcao questao 4
+/*
+int sinal(float *frequencia, float *periodo){
+    if(*frequencia == 0){
+        *frequencia = 1 / *periodo;
+    }else if(*periodo == 0){
+        *periodo = 1 / *frequencia;
+    }else{
+        return -1;
+    }
+    return 0;
+}
+*/
+//funcao questao 5
+int trianguloRetangulo(float *oposto, float *adjacente, float *hipotenusa){
+    float num;
+    if(*oposto == 0){
+        num = pow(*hipotenusa, 2) - pow(*adjacente, 2);
+        *oposto = pow(num, 1.0/2.0);
+    }else if(*adjacente == 0){
+        num = pow(*hipotenusa, 2) - pow(*oposto, 2);
+        *adjacente = pow(num, 1.0/2.0);
+    }else if(*hipotenusa == 0){
+        num = pow(*adjacente, 2) + pow(*oposto, 2);
+        *hipotenusa = pow(num, 1.0/2.0);
+    }else if(*hipotenusa == 0 && *adjacente == 0){
+        return -1;
+    }else if(*hipotenusa == 0 && *oposto == 0){
+        return -1;
+    }else if(*oposto == 0 && *adjacente == 0){
+        return -1;
+    }
+    return 0;
+}
 
 int main(){
     //questao 2
@@ -73,5 +110,26 @@ int main(){
     printf("valores ordenados: \n1. %i\n2. %i\n3. %i", num[0], num[1], num[2]);
     */
    //questao 4
-
+   /*
+    float freq, perid;
+    printf("Insira a frequencia do sinal: ");
+    scanf("%f", &freq);
+    printf("Insira o periodo do sinal: ");
+    scanf("%f", &perid);
+    sinal(&freq, &perid);
+    printf("A frequencia do sinal e %f hertz\n", freq);
+    printf("O periodo do sinal e %f segundos\n", perid);
+    */
+   //questao 5
+    float catOp, catAd, hip;
+    printf("Insira o Valor do Cateto Adjacente: ");
+    scanf("%f", &catAd);
+    printf("Insira o Valor do Cateto Oposto: ");
+    scanf("%f", &catOp);
+    printf("Insira o Valor da Hipotenusa: ");
+    scanf("%f", &hip);
+    trianguloRetangulo(&catOp, &catAd, &hip);
+    printf("O Cateto Oposto e: %f\n", catOp);
+    printf("O Cateto Adjacente e: %f\n", catAd);
+    printf("A Hipotenusa e: %f\n", hip);
 }
