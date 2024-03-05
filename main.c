@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 
 //funcao questao 2
 /*
@@ -58,6 +59,7 @@ int sinal(float *frequencia, float *periodo){
 }
 */
 //funcao questao 5
+/*
 int trianguloRetangulo(float *oposto, float *adjacente, float *hipotenusa){
     float num;
     if(*oposto == 0){
@@ -77,6 +79,28 @@ int trianguloRetangulo(float *oposto, float *adjacente, float *hipotenusa){
         return -1;
     }
     return 0;
+}
+*/
+
+void ordena_alfa (char *p1, char *p2) {
+    char string1 = *p1, string2 = *p2;
+    if (strcmp(p1, p2) > 0) {
+        for (int i = 0; *(p2 + i) != '\0'; i++) { 
+            printf("%c", *(p2 + i));
+        }
+        printf("\n");
+        for (int i = 0; *(p1 + i) != '\0'; i++) { 
+            printf("%c", *(p1 + i));
+        }
+    } else {
+        for (int i = 0; *(p1 + i) != '\0'; i++) { 
+            printf("%c", *(p1 + i));
+        }
+        printf("\n");
+        for (int i = 0; *(p2 + i) != '\0'; i++) { 
+            printf("%c", *(p2 + i));
+        }
+    }
 }
 
 int main(){
@@ -121,6 +145,7 @@ int main(){
     printf("O periodo do sinal e %f segundos\n", perid);
     */
    //questao 5
+   /*
     float catOp, catAd, hip;
     printf("Insira o Valor do Cateto Adjacente: ");
     scanf("%f", &catAd);
@@ -132,4 +157,10 @@ int main(){
     printf("O Cateto Oposto e: %f\n", catOp);
     printf("O Cateto Adjacente e: %f\n", catAd);
     printf("A Hipotenusa e: %f\n", hip);
+   */
+
+    char string1[50], string2[50];
+    gets(string1);
+    gets(string2);
+    ordena_alfa(string1, string2);
 }
